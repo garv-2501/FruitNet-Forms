@@ -1,29 +1,40 @@
+/* Provides generic styling for all objects not given specific styling */
+body {
+    background-color: #212121;
+    color: #cbd2d9;
+}
+
+/* Styling for the navigation bar */
+.navbar {
+    background-color: #cbd2d9;
+}
+
+/* Generic Styling for all h1 tags that are not given specific styling */
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    color: #f5f7fa;
 }
 
+/* Generic styling for all h2 tags that are not given specific styling */
 h2 {
-    font-family: Arial, Helvetica, sans-serif;
+    color: #e4e7eb;
 }
 
-p {
-    font-family: Arial, Helvetica, sans-serif;
+/* General color for all h4 tags that are not given specific styling */
+h4 {
+    color: #f5f7fa;
 }
 
-table {
-    border: 1px solid;
+/* Styling for the list of items in the home page */
+.product-list {
+    color: #cbd2d9;
 }
 
-th {
-    text-align: left;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-td {
-    font-family: Arial, Helvetica, sans-serif;
-    padding-right:20px;
+/* Generic styling for tables */
+.table {
+    background-color: #616e7c;
+    color: #cbd2d9;
 }
 
 .errormessage {
-    color:red;
+    color: red;
 }

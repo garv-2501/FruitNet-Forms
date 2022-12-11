@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Bootstrap for CSS only -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <!-- Bootstrap for JavaScript Bundle with Popper -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+        <title><%=forumName%> - Users</title>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+    </head>
+    <body>
+        <h1><%=forumName%></h1>
+        <h2>Users with membership of: <%=membership[0].topic_title%></h2>
+        <h3>Description of the topic:</h3>
+        <h4><%= membership[0].topic_description%></h4>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>username</th>
+                <th>firstname</th>
+                <th>surname</th>
+                <th>country</th>
+            </tr>
+            <% membership.forEach(function(member) { %>
+            <tr>
+                <td><%= member.user_id %></td>
+                <td><%= member.username %></td>
+                <td><%= member.firstname %></td>
+                <td><%= member.surname %></td>
+                <td><%= member.country %></td>
+            </tr>
+            <% }) %>
+        </table>
+    </body>
+</html>
