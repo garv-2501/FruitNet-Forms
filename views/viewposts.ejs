@@ -18,29 +18,68 @@
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
+        <!-- Navigation bar for the web app (uses bootstrap) -->
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/"
+                ><h3 style="margin-left: 10px">Frutchan</h3></a
+            >
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link" href="about">About</a>
+                    <a class="nav-item nav-link active" href="viewposts">
+                        Posts<span class="sr-only"></span>
+                    </a>
+                    <a class="nav-item nav-link" href="users">Users</a>
+                    <a class="nav-item nav-link" href="topics">Topics</a>
+                    <a class="nav-item nav-link" href="addpost"> Add Post </a>
+                    <a class="nav-item nav-link" href="search"> Search </a>
+                </div>
+            </div>
+        </nav>
+        <br />
+
         <h1>Fruitnet Forums</h1>
         <h2>View posts</h2>
-        <table>
-            <tr>
-                <th>Date</th>
-                <th>Topic</th>
-                <th>Title</th>
-                <th>Content</th>
-                <th>User</th>
-            </tr>
-            <% posts.forEach(function(post) { %>
-            <tr>
-                <td>
-                    <%= post.post_date.toDateString() %> <%=
-                    post.post_date.getHours() %>:<%= post.post_date.getMinutes()
-                    %>
-                </td>
-                <td><%= post.topic_title %></td>
-                <td><%= post.post_title %></td>
-                <td><%= post.post_content %></td>
-                <td><%= post.username %></td>
-            </tr>
-            <% }) %>
-        </table>
+        <div class="table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Date</th>
+                        <th>Topic</th>
+                        <th>Title</th>
+                        <th>Content</th>
+                        <th>User</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider"></tbody>
+                    <% posts.forEach(function(post) { %>
+                    <tr>
+                        <td>
+                            <%= post.post_date.toDateString() %> <%=
+                            post.post_date.getHours() %>:<%= post.post_date.getMinutes()
+                            %>
+                        </td>
+                        <td><%= post.topic_title %></td>
+                        <td><%= post.post_title %></td>
+                        <td><%= post.post_content %></td>
+                        <td><%= post.username %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

@@ -35,6 +35,17 @@ h4 {
     color: #cbd2d9;
 }
 
+/* For all the links in the website */
+.home-links {
+    color: #f5f7fa;
+    text-decoration: none;
+    padding-left: 20px;
+}
+.home-links:hover {
+    color: #979797;
+}
+
+/* Error messages */
 .errormessage {
     color: red;
 }

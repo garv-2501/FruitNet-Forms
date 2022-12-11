@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS topics;
 # Create the user table to store user details
 CREATE TABLE users (
   user_id INT NOT NULL UNIQUE AUTO_INCREMENT,
+  topic_id INT,
   firstname VARCHAR(20) NOT NULL,
   surname VARCHAR(20) NOT NULL,
   username VARCHAR(15) NOT NULL UNIQUE,

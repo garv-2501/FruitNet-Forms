@@ -18,27 +18,67 @@
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
+        <!-- Navigation bar for the web app (uses bootstrap) -->
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/"
+                ><h3 style="margin-left: 10px">Frutchan</h3></a
+            >
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="/">
+                        Home<span class="sr-only"></span>
+                    </a>
+                    <a class="nav-item nav-link" href="about">About</a>
+                    <a class="nav-item nav-link" href="viewposts">Posts</a>
+                    <a class="nav-item nav-link active" href="users">
+                        Users<span class="sr-only"></span>
+                    </a>
+                    <a class="nav-item nav-link" href="topics">Topics</a>
+                    <a class="nav-item nav-link" href="addpost"> Add Post </a>
+                    <a class="nav-item nav-link" href="search"> Search </a>
+                </div>
+            </div>
+        </nav>
+        <br />
+
         <h1><%=forumName%></h1>
-        <h2>User info for <%=membership[0].firstname%></h2>
-        <table>
-            <tr>
-                <th>User ID</th>
-                <th>First Name</th>
-                <th>Surname</th>
-                <th>Username</th>
-                <th>Country</th>
-                <th>Tipic Title</th>
-            </tr>
-            <% membership.forEach(function(member) { %>
-            <tr>
-                <td><%= member.user_id %></td>
-                <td><%= member.firstname %></td>
-                <td><%= member.surname %></td>
-                <td><%= member.username %></td>
-                <td><%= member.country %></td>
-                <td><%= member.topic_title %></td>
-            </tr>
-            <% }) %>
-        </table>
+        <h2>User info</h2>
+        <div class="table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>First Name</th>
+                        <th>Surname</th>
+                        <th>Username</th>
+                        <th>Country</th>
+                        <th>Topic Title</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider"></tbody>
+                    <% membership.forEach(function(member) { %>
+                    <tr>
+                        <td><%= member.user_id %></td>
+                        <td><%= member.firstname %></td>
+                        <td><%= member.surname %></td>
+                        <td><%= member.username %></td>
+                        <td><%= member.country %></td>
+                        <td><%= member.topic_title %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

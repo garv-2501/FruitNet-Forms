@@ -99,7 +99,7 @@ module.exports = function (app, forumData) {
     app.post("/topic-info", function (req, res) {
         //searching in the database
         let term = "%" + req.body.keyword + "%";
-        let sqlquery = `SELECT u.user_id, u.username, u.firstname, u.surname, u.country, t.topic_title, t.topic_description
+        let sqlquery = `SELECT u.user_id, u.username, u.firstname, u.surname, u.country
                         FROM   membership m
                         JOIN topics t
                         ON t.topic_id = m.topic_id

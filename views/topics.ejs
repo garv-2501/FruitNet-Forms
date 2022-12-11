@@ -18,27 +18,68 @@
         <link rel="stylesheet" type="text/css" href="main.css" />
     </head>
     <body>
+        <!-- Navigation bar for the web app (uses bootstrap) -->
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand" href="/"
+                ><h3 style="margin-left: 10px">Frutchan</h3></a
+            >
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/">Home</a>
+                    <a class="nav-item nav-link" href="about">About</a>
+                    <a class="nav-item nav-link" href="viewposts">Posts</a>
+                    <a class="nav-item nav-link" href="users">Users</a>
+                     <a class="nav-item nav-link active" href="topics">
+                        Topics<span class="sr-only"></span>
+                    </a>
+                    <a class="nav-item nav-link" href="addpost"> Add Post </a>
+                    <a class="nav-item nav-link" href="search"> Search </a>
+                </div>
+            </div>
+        </nav>
+        <br />
+
         <h1><%=forumName%></h1>
         <h2>Topics</h2>
-        <table>
-            <tr>
-                <th>Topic</th>
-                <th>Description</th>
-            </tr>
-            <% topics.forEach(function(topic) { %>
-            <tr>
-                <td>
-                    <form action="/topic-info" method="post">
-                        <input
-                            type="submit"
-                            name="keyword"
-                            value="<%=topic.topic_title%>"
-                        />
-                    </form>
-                </td>
-                <td><%= topic.topic_description %></td>
-            </tr>
-            <% }) %>
-        </table>
+
+        <div class="table">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Topic</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider"></tbody>
+                <% topics.forEach(function(topic) { %>
+                    <tr>
+                        <td>
+                            <form action="/topic-info" method="post">
+                                <input
+                                    type="submit"
+                                    name="keyword"
+                                    value="<%=topic.topic_title%>"
+                                />
+                            </form>
+                        </td>
+                        <td><%= topic.topic_description %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        
     </body>
 </html>
