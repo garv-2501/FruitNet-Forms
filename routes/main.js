@@ -142,63 +142,18 @@ module.exports = function (app, forumData) {
         let topic_id = -1;
 
         // Get the user id from the user name
-        let sqlquery = `SELECT * FROM users WHERE username = ?`;
-        db.query(sqlquery, [req.body.username], (err, result) => {
+        let params = [
+            req.body.title,
+            req.body.content,
+            req.body.topic,
+            req.body.username,
+        ];
+        let sqlquery = `CALL addpost(?,?,?,?)`;
+        db.query(sqlquery, params, (err, result) => {
             if (err) {
-                return console.error(err.message);
+                return renderAddNewPost(res, req.body, err.message);
             }
-            if (result.length == 0) {
-                return renderAddNewPost(res, req.body, "Can't find that user");
-            }
-            user_id = result[0].user_id;
-            console.log("user is " + user_id);
-
-            // Get the topic id from the topic title
-            sqlquery = `SELECT * FROM topics WHERE topic_title = ?`;
-            db.query(sqlquery, [req.body.topic], (err, result) => {
-                if (err) {
-                    return console.error(err.message);
-                }
-                if (result.length == 0) {
-                    return renderAddNewPost(
-                        res,
-                        req.body,
-                        "Can't find that topic"
-                    );
-                }
-                topic_id = result[0].topic_id;
-                console.log("topic is " + topic_id);
-
-                // Check the user is a member of the topic
-                sqlquery = `SELECT COUNT(*) as countmembership FROM membership WHERE user_id=? AND topic_id=?;`;
-                db.query(sqlquery, [user_id, topic_id], (err, result) => {
-                    if (err) {
-                        return console.error(err.message);
-                    }
-                    if (result[0].countmembership == 0) {
-                        return renderAddNewPost(
-                            res,
-                            req.body,
-                            "User is not a member of that topic"
-                        );
-                    }
-
-                    // Everything is in order so insert the post
-                    sqlquery = `INSERT INTO posts (post_date, post_title, post_content, user_id, topic_id)
-                                VALUES (now(), ?, ?, ?, ?)`;
-                    let newrecord = [
-                        req.body.title,
-                        req.body.content,
-                        user_id,
-                        topic_id,
-                    ];
-                    db.query(sqlquery, newrecord, (err, result) => {
-                        if (err) {
-                            return console.error(err.message);
-                        } else res.send("You post has been added to forum");
-                    });
-                });
-            });
+            res.send("Your post has been added to the forum");
         });
     });
 
