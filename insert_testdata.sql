@@ -27,12 +27,14 @@ VALUES ('food', 'All about food'),
 # Insert some user membership to topics
 INSERT INTO membership (user_id, topic_id)
 VALUES (1,1),(1,2),(1,3),
-       (2,2),(2, 3)
+       (2,2),(2, 3),
        (3,2), (3,3),
        (4,1),
        (5,1),
        (6,1),(6,3),
-       (7,3);
+       (7,3),
+       (8,1),(8,2),
+       (9,2);
        
 # Insert some test posts
 INSERT INTO posts (post_date, post_title, post_content, user_id, topic_id)

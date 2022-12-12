@@ -229,4 +229,20 @@ module.exports = function (app, forumData) {
             res.render("viewposts", allData);
         });
     });
+
+    app.get("/register", (req, res) => {
+        res.render("register.ejs", forumData);
+    });
+
+    app.post("/register", (req, res) => {
+        const { u_name, pass } = req.body;
+        db.query(
+            "INSERT INTO credentials (username, password) VALUES (?, ?)",
+            [username, password],
+            (error, results) => {
+                if (error) throw error;
+                res.redirect("login");
+            }
+        );
+    });
 };

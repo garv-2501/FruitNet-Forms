@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <!-- Bootstrap for CSS only -->
         <link
@@ -14,8 +14,12 @@
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"
         ></script>
-        <title><%=forumName%> - About</title>
+        <title><%=forumName%> - Add Post</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
     </head>
     <body>
         <!-- Navigation bar for the web app (uses bootstrap) -->
@@ -36,24 +40,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-item nav-link" href="/">Home</a>
-                    <a class="nav-item nav-link active" href="about">
-                        About<span class="sr-only"></span>
-                    </a>
+                    <a class="nav-item nav-link" href="/"> Home </a>
+                    <a class="nav-item nav-link" href="about">About</a>
                     <a class="nav-item nav-link" href="viewposts">Posts</a>
                     <a class="nav-item nav-link" href="users">Users</a>
                     <a class="nav-item nav-link" href="topics">Topics</a>
                     <a class="nav-item nav-link" href="addpost"> Add Post </a>
-                    <a class="nav-item nav-link" href="search"> Search </a>
-                    <a class="nav-item nav-link" href="register"></a>Register</a>
-                    <a class="nav-item nav-link active" href="log-in">Log-in</a>
+                    <a class="nav-item nav-link" href="search"> </a>
+                    <a class="nav-item nav-link active" href="register"></a>
+                    <a class="nav-item nav-link" href="log-in">Log-in</a>
                 </div>
             </div>
         </nav>
         <br />
-
-        <!-- Main code -->
-        <h1>About <%=forumName%></h1>
-        <p>Come here to chat about anything you want</p>
     </body>
 </html>
